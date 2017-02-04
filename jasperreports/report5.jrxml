@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="daa650ad-bbdd-4889-a1ae-87bf44693857">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+"public".uzytkownicy.imie,
+"public".uzytkownicy.nazwisko,
+"public".uzytkownicy.dataurodzenia,
+"public".grupy.nazwa
+FROM
+"public".uzytkownicygrup
+INNER JOIN "public".uzytkownicy ON "public".uzytkownicygrup.iduzytkownika = "public".uzytkownicy.iduzytkownika
+INNER JOIN "public".grupy ON "public".uzytkownicygrup.idgrupy = "public".grupy.idgrupy
+WHERE uzytkownicygrup.idgrupy=1
+GROUP BY
+"public".uzytkownicygrup.idgrupy,
+"public".uzytkownicy.imie,
+"public".uzytkownicy.nazwisko,
+"public".uzytkownicy.dataurodzenia,
+"public".grupy.nazwa]]>
+	</queryString>
+	<field name="imie" class="java.lang.String"/>
+	<field name="nazwisko" class="java.lang.String"/>
+	<field name="dataurodzenia" class="java.sql.Date"/>
+	<field name="nazwa" class="java.lang.String"/>
+	<group name="imie">
+		<groupExpression><![CDATA[$F{imie}]]></groupExpression>
+	</group>
+	<group name="nazwisko">
+		<groupExpression><![CDATA[$F{nazwisko}]]></groupExpression>
+	</group>
+	<group name="dataurodzenia">
+		<groupExpression><![CDATA[$F{dataurodzenia}]]></groupExpression>
+	</group>
+	<group name="nazwa">
+		<groupExpression><![CDATA[$F{nazwa}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="50">
+			<textField>
+				<reportElement x="-12" y="0" width="567" height="50" uuid="24844095-3e7c-49de-ae7c-8cb00b16b643"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nazwa}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="96" splitType="Stretch">
+			<textField>
+				<reportElement x="69" y="0" width="294" height="20" uuid="d1e74fb8-7f73-4db8-a1b9-809b0069ef8b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{imie}+" "+$F{nazwisko}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="69" y="20" width="294" height="20" uuid="efe3562d-a6d1-4bbf-9e9e-391ce76cdef4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Data urodzenia : "+$F{dataurodzenia}.toString()]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="0" y="0" width="69" height="68" uuid="87f5612f-f1eb-400a-8786-292e6546eebe"/>
+				<imageExpression><![CDATA["\\jasperreports\\friend.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

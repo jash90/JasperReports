@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="f001c28d-1558-4d66-b80c-5ddcd8886526">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="imie" class="java.lang.String"/>
+	<field name="nazwisko" class="java.lang.String"/>
+	<field name="tresc" class="java.lang.String"/>
+	<field name="dataposta" class="java.sql.Timestamp"/>
+	<field name="like" class="java.lang.Integer"/>
+	<field name="dislike" class="java.lang.Integer"/>
+	<field name="happy" class="java.lang.Integer"/>
+	<field name="sad" class="java.lang.Integer"/>
+	<title>
+		<band height="128" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="23" uuid="4d5a7b0a-7085-40c2-a50a-feb591be7b9d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Aktualności]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="23" width="555" height="70" uuid="4a6db48a-bb51-4dbd-b401-b130f1bcff78"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="23" width="555" height="70" uuid="19278109-7b6b-4761-94fb-eaa0d271cbd7"/>
+				<textElement>
+					<paragraph leftIndent="5" spacingBefore="5"/>
+				</textElement>
+				<text><![CDATA[Napisz co robisz...]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement x="411" y="93" width="144" height="30" uuid="536144b4-4843-47f7-ba65-1176c31904dd"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="411" y="93" width="144" height="30" uuid="618a6b27-8ed6-4041-b2b2-65c487a89c82"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Dodaj post]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="176">
+			<textField>
+				<reportElement x="209" y="135" width="30" height="30" uuid="16f934b3-0769-44e1-baad-86f6c0535343"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{sad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="29" y="135" width="30" height="30" uuid="1112024f-e92c-4099-aaed-e3a4bea80128"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{like}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="179" y="135" width="30" height="30" uuid="29d6a95d-eb6d-4371-a4d4-d2fa7eaf0464"/>
+				<imageExpression><![CDATA["\\jasperreports\\sad.png"]]></imageExpression>
+			</image>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="59" y="135" width="30" height="30" uuid="de213ed7-8e98-449d-ac43-53f8514a4f58"/>
+				<imageExpression><![CDATA["\\jasperreports\\dislike.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="149" y="135" width="30" height="30" uuid="ee0dea3c-f0bd-499c-8886-4c44a9e47800"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{happy}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="89" y="135" width="30" height="30" uuid="05c4edbe-9b55-42b4-9885-ad2c197287f5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{dislike}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="119" y="135" width="30" height="30" uuid="f9dc0c54-fbcf-4220-afe5-4d7aee1cc8ed"/>
+				<imageExpression><![CDATA["\\jasperreports\\happy.png"]]></imageExpression>
+			</image>
+			<rectangle radius="10">
+				<reportElement x="411" y="135" width="144" height="30" uuid="9fa1110f-1ddb-48c1-8bf2-3f53761502cf"/>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="130" backcolor="#E5ECF9" uuid="6b4e4125-7ba3-4889-b5c5-a53f1ffcd042"/>
+				<box>
+					<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="40" y="0" width="147" height="15" uuid="d5f9d283-a72c-4b67-a069-d9efdfdfe68d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{imie}.concat(" "+$F{nazwisko})]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="-1" y="135" width="30" height="30" uuid="27ee9210-cf5d-4f79-8b81-ece668c825f4"/>
+				<imageExpression><![CDATA["\\jasperreports\\like.png"]]></imageExpression>
+			</image>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="0" y="0" width="40" height="40" uuid="f9b34573-097b-4294-a19c-83aad3c989d9"/>
+				<imageExpression><![CDATA["\\jasperreports\\friend.jpg"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="40" y="25" width="147" height="15" uuid="ff58ed83-82ee-4767-a650-a19be746a70a"/>
+				<textElement>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataposta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="53" width="555" height="66" uuid="bdcc66e1-3dbf-430d-ba16-d640d686ff02"/>
+				<textElement>
+					<paragraph leftIndent="5" spacingBefore="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tresc}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="411" y="135" width="144" height="30" uuid="6bf29e85-4b91-4c6f-a26e-6298f62df6ae"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Komentarz]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>
